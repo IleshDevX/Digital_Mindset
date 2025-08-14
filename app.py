@@ -2,13 +2,14 @@ import streamlit as st
 import pandas as pd
 import joblib
 import json
+import pickle
 
 # Load model and selected features
 model = joblib.load("model.pkl")
-with open("selected_features.json", "r") as f:
-    selected_features = json.load(f)
+with open('model.pkl', 'rb') as f:
+    model = pickle.load(f)
 
-st.title("Random Forest Regression Predictor")
+st.title('Digital Mindset Prediction App')
 
 # User input form
 st.write("Enter input values for prediction:")
